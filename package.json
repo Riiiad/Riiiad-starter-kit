@@ -1,0 +1,21 @@
+{
+  "name": "riiiad_starter_kid",
+  "version": "1.0.0",
+  "description": "A little helper to kickstart your projects",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp default"
+  },
+  "author": "Riad Zejnilagic Trumic",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}
