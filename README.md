@@ -1,8 +1,12 @@
 # Riiiad Starter Kit
 
 A starter package for compiling Sass, Pug and running a dev server.
+
+
 This package is inspired by the Traversy Media and Dev Tips starter kits.
 Check out they starter kits they are awesome.
+
+
 TM: https://github.com/bradtraversy/sass_starter_pack
 DevTips: https://github.com/DevTips/DevTips-Starter-Kit
 
@@ -22,8 +26,6 @@ $ npm install
 
 This kit works with pug by default. You change the pug files in the pug folder and the files are compiled to html.
 
-There is a `<gulp no-pug>` option, this will only run sass compiling and the dev server. You just change the index.html file in the pug/no-pug folder.
-
 In the assets folder you upload the images and js files this folder will be copy to the build folder.
 
 Never change the src/index.html or the assets/css/ files because it will be overwritten with the compiled files.
@@ -34,6 +36,16 @@ This will watch your sass/pug files and run your dev server at http://localhost:
 
 ```sh
 $ npm start
+```
+
+### Run without Pug(testing)
+
+There is a `gulp no-pug` option, this will only run sass compiling and the dev server. You just change the index.html file in the src/no-pug folder.
+
+You have to refresh the site to see changes, auto-refresh is still not working.
+
+```sh
+$ gulp no-pug
 ```
 
 ### Ready for deployment

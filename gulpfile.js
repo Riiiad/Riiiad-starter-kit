@@ -44,15 +44,15 @@ gulp.task('serve-no-pug', ['sass', 'copyNoPugHtml'], () => {
         server: "./src"
     })
     gulp.watch(['src/scss/**/*'], ['sass']).on('change', browserSync.reload)
-    gulp.watch(['src/pug/no-pug/*.html']).on('change', ()=>{
-      return gulp.src(['src/pug/no-pug/*.html'])
+    gulp.watch(['src/no-pug/*.html']).on('change', () => {
+      return gulp.src(['src/no-pug/*.html'])
           .pipe(gulp.dest('src'));
     });
 });
 // Copy index.html file from no-pug folder
 gulp.task('copyNoPugHtml', () => {
-    return gulp.src(['src/pug/no-pug/*.html'])
-        .pipe(gulp.dest('src'));        
+    return gulp.src(['src/no-pug/*.html'])
+        .pipe(gulp.dest('src'));
 });
 gulp.task('no-pug', ['copyNoPugHtml', 'serve-no-pug', 'help']);
 // ********************************************************************************
