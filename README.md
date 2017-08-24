@@ -1,13 +1,15 @@
 # Riiiad Starter Kit
 
 A starter package for compiling Sass, Pug and running a dev server.
-
+Created by Riad ZT riiiaddesign@gmail.com
 
 This package is inspired by the Traversy Media and Dev Tips starter kits.
 Check out they starter kits they are awesome.
 
 
 TM: https://github.com/bradtraversy/sass_starter_pack
+
+
 DevTips: https://github.com/DevTips/DevTips-Starter-Kit
 
 ### Version
