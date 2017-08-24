@@ -12,7 +12,7 @@ DevTips: https://github.com/DevTips/DevTips-Starter-Kit
 
 ### Version
 
-1.0.1
+1.0.5
 
 
 ### Installation
