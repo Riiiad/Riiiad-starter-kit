@@ -1,5 +1,7 @@
-$( document ).ready(function() {
+window.onload = myFunction();
 
-  // Get started!
-
-});
+function myFunction() {
+  console.log("*********************************");
+  console.log("main.js is working ... awesomeeeee");
+  console.log("*********************************");
+}
