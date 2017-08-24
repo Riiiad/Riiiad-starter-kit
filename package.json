@@ -4,7 +4,10 @@
   "description": "A little helper to kickstart your projects",
   "main": "index.js",
   "scripts": {
-    "start": "gulp default"
+    "start": "gulp default",
+    "build": "gulp build",
+    "nopug": "gulp nopug",
+    "help": "gulp help"
   },
   "author": "Riad Zejnilagic Trumic",
   "license": "ISC",

@@ -54,7 +54,7 @@ gulp.task('copyNoPugHtml', () => {
     return gulp.src(['src/no-pug/*.html'])
         .pipe(gulp.dest('src'));
 });
-gulp.task('no-pug', ['copyNoPugHtml', 'serve-no-pug', 'help']);
+gulp.task('nopug', ['copyNoPugHtml', 'serve-no-pug', 'help']);
 // ********************************************************************************
 
 // This is the Build part it creates the dist folder and readys all the files for deployment

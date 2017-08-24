@@ -22,6 +22,13 @@ Install the dependencies (gulp, gulp-sass, gulp-pug, gulp-concat, gulp-imagemin,
 ```sh
 $ npm install
 ```
+
+(Optional)Install gulp globally if you want to run the gulp command in your CLI.
+
+```sh
+$ npm install -g gulp
+```
+
 ## Usage
 
 This kit works with pug by default. You change the pug files in the pug folder and the files are compiled to html.
