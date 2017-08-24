@@ -5,7 +5,7 @@ const pug         = require('gulp-pug');
 const uglify      = require('gulp-uglify');
 const imageMin    = require('gulp-imagemin');
 const concat      = require('gulp-concat');
-var del           = require('del');
+const del         = require('del');
 
 // Compile Pug
 gulp.task('pug', () => {
@@ -26,7 +26,7 @@ gulp.task('sass', () => {
 });
 
 
-// Watch Sass & Serve
+// Watch Sass, Pug & Serve
 gulp.task('serve', ['sass', 'pug'], () => {
     browserSync.init({
         server: "./src"
@@ -36,6 +36,26 @@ gulp.task('serve', ['sass', 'pug'], () => {
 });
 // Default Task
 gulp.task('default', ['serve','help']);
+
+// **************************No Pug compiling************************************
+// Watch Sass & Serve
+gulp.task('serve-no-pug', ['sass', 'copyNoPugHtml'], () => {
+    browserSync.init({
+        server: "./src"
+    })
+    gulp.watch(['src/scss/**/*'], ['sass']).on('change', browserSync.reload)
+    gulp.watch(['src/pug/no-pug/*.html']).on('change', ()=>{
+      return gulp.src(['src/pug/no-pug/*.html'])
+          .pipe(gulp.dest('src'));
+    });
+});
+// Copy index.html file from no-pug folder
+gulp.task('copyNoPugHtml', () => {
+    return gulp.src(['src/pug/no-pug/*.html'])
+        .pipe(gulp.dest('src'));        
+});
+gulp.task('no-pug', ['copyNoPugHtml', 'serve-no-pug', 'help']);
+// ********************************************************************************
 
 // This is the Build part it creates the dist folder and readys all the files for deployment
 
@@ -67,7 +87,7 @@ gulp.task('scripts', () => {
 gulp.task('build', ['imageMin', 'scripts', 'copyHtml', 'copyCSS']);
 
 // Clean the build folder
-gulp.task('clean', function () {
+gulp.task('clean', () => {
   console.log('-> Cleaning dist folder')
   del([
     'dist'
@@ -87,6 +107,7 @@ gulp.task('help', () => {
   console.log('        copyHtml: Copy the Html files');
   console.log('        imageMin: Copy the newer images to the build folder');
   console.log('        build: Creates the dist folder if not already create and copy all files in it');
+  console.log('        no-pug: If you do not want to use pug');
   console.log('        help: Print this message');
   console.log('');
 });
