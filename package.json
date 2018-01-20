@@ -1,6 +1,6 @@
 {
-  "name": "riiiad_starter_kid",
-  "version": "1.0.5",
+  "name": "riiiads_starter_kit",
+  "version": "1.1.0",
   "description": "A little helper to kickstart your projects",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,8 @@
     "gulp-imagemin": "^3.3.0",
     "gulp-pug": "^3.3.0",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0"
+    "gulp-typescript": "^4.0.0-alpha.1",
+    "gulp-uglify": "^3.0.0",
+    "typescript": "^2.6.2"
   }
 }

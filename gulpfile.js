@@ -5,6 +5,8 @@ const pug         = require('gulp-pug');
 const uglify      = require('gulp-uglify');
 const imageMin    = require('gulp-imagemin');
 const concat      = require('gulp-concat');
+const ts          = require('gulp-typescript');
+const tsProject   = ts.createProject("tsconfig.json");
 const del         = require('del');
 
 // Compile Pug
@@ -25,14 +27,20 @@ gulp.task('sass', () => {
         .pipe(browserSync.stream());
 });
 
+gulp.task("typescript", function () {
+    return tsProject.src()
+        .pipe(tsProject())
+        .js.pipe(gulp.dest("src/assets/js"));
+});
 
 // Watch Sass, Pug & Serve
-gulp.task('serve', ['sass', 'pug'], () => {
+gulp.task('serve', ['sass', 'pug', 'typescript'], () => {
     browserSync.init({
         server: "./src"
     })
-    gulp.watch(['src/pug/*.pug'], ['pug']).on('change', browserSync.reload)
+    gulp.watch(['src/pug/*.pug'], ['pug']).on('change', browserSync.reload);
     gulp.watch(['src/scss/**/*'], ['sass']).on('change', browserSync.reload);
+    gulp.watch(['src/assets/js/main.ts'], ['typescript']).on('change', browserSync.reload);
 });
 // Default Task
 gulp.task('default', ['serve','help']);
@@ -83,7 +91,7 @@ gulp.task('scripts', () => {
         .pipe(gulp.dest('dist/assets/js'));
 });
 
-// Builds to dist folder ready to deploy
+// Builds to dist folder, ready to deploy
 gulp.task('build', ['imageMin', 'scripts', 'copyHtml', 'copyCSS']);
 
 // Clean the build folder
@@ -102,6 +110,7 @@ gulp.task('help', () => {
   console.log('Usage: gulp [command]');
   console.log('The commands are the following');
   console.log('-------------------------------------------------------');
+  console.log('        typescript: Runs the typescript compiler');
   console.log('        clean: Removes all the compiled files on ./dist');
   console.log('        copyCss: Copy the complied css files');
   console.log('        copyHtml: Copy the Html files');
